@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>교육 카드뉴스</title>
+
+<style>
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #f4f4f4;
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.wrap {
+  width: 100%;
+  max-width: 700px;
+  padding: 15px;
+  text-align: center;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+}
+
+.slides {
+  display: flex;
+  transition: transform .3s ease;
+  touch-action: pan-y;
+}
+
+.slide {
+  min-width: 100%;
+}
+
+.slide img {
+  width: 100%;
+  display: block;
+}
+
+button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(0,0,0,.45);
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.dots {
+  margin-top: 15px;
+}
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  margin: 4px;
+  border-radius: 50%;
+  background: #bbb;
+}
+
+.dot.active {
+  background: #333;
+}
+
+.counter {
+  margin-top: 8px;
+  color: #555;
+  font-size: 14px;
+}
+
+@media(max-width:600px) {
+  .wrap { padding:0; }
+  .carousel { border-radius:0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="wrap">
+
+  <div class="carousel">
+
+    <div class="slides" id="slides">
+
+      <div class="slide"><img src="1.png"></div>
+      <div class="slide"><img src="2.png"></div>
+      <div class="slide"><img src="3.png"></div>
+      <div class="slide"><img src="4.png"></div>
+      <div class="slide"><img src="5.png"></div>
+
+    </div>
+
+    <button class="prev" onclick="prev()">‹</button>
+    <button class="next" onclick="next()">›</button>
+
+  </div>
+
+  <div class="dots" id="dots"></div>
+  <div class="counter" id="counter">1 / 5</div>
+
+</div>
+
+<script>
+let current = 0;
+const total = 5;
+
+const slides = document.getElementById("slides");
+const dots = document.getElementById("dots");
+const counter = document.getElementById("counter");
+
+for(let i=0;i<total;i++){
+  const dot=document.createElement("span");
+  dot.className="dot";
+  dots.appendChild(dot);
+}
+
+function update(){
+  slides.style.transform=`translateX(-${current*100}%)`;
+  counter.innerText=`${current+1} / ${total}`;
+
+  document.querySelectorAll(".dot").forEach((d,i)=>{
+    d.classList.toggle("active",i===current);
+  });
+}
+
+function next(){
+  current=(current+1)%total;
+  update();
+}
+
+function prev(){
+  current=(current-1+total)%total;
+  update();
+}
+
+/* PC 키보드 */
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight") next();
+  if(e.key==="ArrowLeft") prev();
+});
+
+/* 모바일 스와이프 */
+let startX=0;
+
+slides.addEventListener("touchstart",e=>{
+  startX=e.touches[0].clientX;
+},{passive:true});
+
+slides.addEventListener("touchend",e=>{
+  const endX=e.changedTouches[0].clientX;
+
+  if(startX-endX>50) next();
+  if(endX-startX>50) prev();
+},{passive:true});
+
+update();
+</script>
+
+</body>
+</html>
