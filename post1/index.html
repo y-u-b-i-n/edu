@@ -3,185 +3,217 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Learning Hub | 교육 콘텐츠</title>
+
+<title>HDP 아카데미</title>
 
 <style>
-* { box-sizing: border-box; }
+* {
+  box-sizing: border-box;
+}
 
 body {
   margin: 0;
-  background: #f4f4f4;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
+  font-family: Arial, "Noto Sans KR", sans-serif;
+  background: #f7f7f8;
+  color: #191919;
 }
 
-.wrap {
-  width: 100%;
-  max-width: 700px;
-  padding: 15px;
-  text-align: center;
-}
-
-.carousel {
-  position: relative;
-  overflow: hidden;
+/* 상단 */
+header {
   background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.12);
+  border-bottom: 1px solid #e8e8e8;
 }
 
-.slides {
+.header-inner {
+  max-width: 1100px;
+  margin: auto;
+  padding: 22px 24px;
   display: flex;
-  transition: transform .3s ease;
-  touch-action: pan-y;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.slide {
-  min-width: 100%;
+.logo {
+  font-size: 22px;
+  font-weight: 700;
 }
 
-.slide img {
+nav {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* 메인 */
+main {
+  max-width: 1100px;
+  margin: auto;
+  padding: 60px 24px;
+}
+
+.hero {
+  margin-bottom: 45px;
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: 38px;
+}
+
+.hero p {
+  margin: 0;
+  color: #666;
+  font-size: 17px;
+}
+
+/* 게시물 영역 */
+.section-title {
+  font-size: 22px;
+  margin-bottom: 20px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+/* 게시물 카드 */
+.card {
+  display: block;
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  border: 1px solid #ededed;
+  transition: 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 30px rgba(0,0,0,.08);
+}
+
+.thumbnail {
   width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
   display: block;
 }
 
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(0,0,0,.45);
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
+.content {
+  padding: 20px;
 }
 
-.prev { left: 10px; }
-.next { right: 10px; }
-
-.dots {
-  margin-top: 15px;
+.category {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 9px;
 }
 
-.dot {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  margin: 4px;
-  border-radius: 50%;
-  background: #bbb;
+.title {
+  font-size: 19px;
+  font-weight: 700;
+  margin-bottom: 10px;
 }
 
-.dot.active {
-  background: #333;
-}
-
-.counter {
-  margin-top: 8px;
-  color: #555;
+.description {
+  color: #666;
   font-size: 14px;
+  line-height: 1.6;
 }
 
-.home {
-  display: inline-block;
-  margin-top: 20px;
-  color: #333;
-  text-decoration: none;
-  font-size: 14px;
+.date {
+  margin-top: 18px;
+  color: #999;
+  font-size: 12px;
 }
 
-@media(max-width:600px) {
-  .wrap { padding: 0; }
-  .carousel { border-radius: 0; }
+/* 모바일 */
+@media(max-width: 800px) {
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+@media(max-width: 550px) {
+
+  .header-inner {
+    padding: 18px;
+  }
+
+  main {
+    padding: 40px 18px;
+  }
+
+  .hero h1 {
+    font-size: 30px;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<div class="wrap">
+<header>
+  <div class="header-inner">
+    <div class="logo">HDP 아카데미</div>
+    <nav>Learning Hub</nav>
+  </div>
+</header>
 
-  <div class="carousel">
+<main>
 
-    <div class="slides" id="slides">
-      <div class="slide"><img src="../1.png"></div>
-      <div class="slide"><img src="../2.png"></div>
-      <div class="slide"><img src="../3.png"></div>
-      <div class="slide"><img src="../4.png"></div>
-      <div class="slide"><img src="../5.png"></div>
-    </div>
+  <section class="hero">
+    <h1>Learning Hub</h1>
+    <p>임직원을 위한 교육 콘텐츠를 확인해보세요.</p>
+  </section>
 
-    <button class="arrow prev" onclick="prev()">‹</button>
-    <button class="arrow next" onclick="next()">›</button>
+  <h2 class="section-title">교육 콘텐츠</h2>
+
+  <div class="grid">
+
+    <!-- 첫 번째 게시물 -->
+    <a class="card" href="post1/">
+
+      <img
+        class="thumbnail"
+        src="1.png"
+        alt="교육 콘텐츠 썸네일"
+      >
+
+      <div class="content">
+
+        <div class="category">
+          Learning Hub
+        </div>
+
+        <div class="title">
+          교육 카드뉴스
+        </div>
+
+        <div class="description">
+          카드뉴스를 좌우로 넘기며 교육 내용을 확인해보세요.
+        </div>
+
+        <div class="date">
+          2026.09
+        </div>
+
+      </div>
+
+    </a>
 
   </div>
 
-  <div class="dots" id="dots"></div>
-  <div class="counter" id="counter">1 / 5</div>
-
-  <a class="home" href="../">← Learning Hub로 돌아가기</a>
-
-</div>
-
-<script>
-let current = 0;
-const total = 5;
-
-const slides = document.getElementById("slides");
-const dots = document.getElementById("dots");
-const counter = document.getElementById("counter");
-
-for(let i=0; i<total; i++){
-  const dot = document.createElement("span");
-  dot.className = "dot";
-  dots.appendChild(dot);
-}
-
-function update(){
-  slides.style.transform = `translateX(-${current * 100}%)`;
-  counter.innerText = `${current + 1} / ${total}`;
-
-  document.querySelectorAll(".dot").forEach((d,i)=>{
-    d.classList.toggle("active", i === current);
-  });
-}
-
-function next(){
-  current = (current + 1) % total;
-  update();
-}
-
-function prev(){
-  current = (current - 1 + total) % total;
-  update();
-}
-
-document.addEventListener("keydown", e => {
-  if(e.key === "ArrowRight") next();
-  if(e.key === "ArrowLeft") prev();
-});
-
-let startX = 0;
-
-slides.addEventListener("touchstart", e => {
-  startX = e.touches[0].clientX;
-}, {passive:true});
-
-slides.addEventListener("touchend", e => {
-  const endX = e.changedTouches[0].clientX;
-
-  if(startX - endX > 50) next();
-  if(endX - startX > 50) prev();
-}, {passive:true});
-
-update();
-</script>
+</main>
 
 </body>
 </html>
