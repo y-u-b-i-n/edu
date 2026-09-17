@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>HDP 아카데미</title>
+  <title>HDP 아카데미 | Learning Hub</title>
 
   <style>
     * {
@@ -15,10 +15,10 @@
       margin: 0;
       font-family: Arial, "Noto Sans KR", sans-serif;
       background: #f7f8fa;
-      color: #181818;
+      color: #191919;
     }
 
-    /* ===== 상단 메뉴 ===== */
+    /* HEADER */
 
     header {
       background: #ffffff;
@@ -34,8 +34,8 @@
       padding: 20px 24px;
 
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
     }
 
     .logo {
@@ -49,8 +49,7 @@
       font-weight: 600;
     }
 
-
-    /* ===== 메인 ===== */
+    /* MAIN */
 
     main {
       max-width: 1180px;
@@ -58,18 +57,18 @@
       padding: 70px 24px 100px;
     }
 
-
-    /* ===== 타이틀 영역 ===== */
+    /* HERO */
 
     .hero {
       margin-bottom: 55px;
     }
 
     .hero-label {
-      font-size: 14px;
-      font-weight: 600;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: #888;
       margin-bottom: 14px;
-      color: #777;
     }
 
     .hero h1 {
@@ -80,34 +79,31 @@
 
     .hero p {
       margin: 0;
+      color: #666;
       font-size: 17px;
       line-height: 1.7;
-      color: #666;
     }
 
-
-    /* ===== Learning Hub ===== */
+    /* SECTION */
 
     .section-header {
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       margin-bottom: 22px;
     }
 
     .section-title {
       margin: 0;
       font-size: 24px;
-      letter-spacing: -0.5px;
     }
 
-    .content-count {
+    .count {
       color: #999;
       font-size: 14px;
     }
 
-
-    /* ===== 게시물 ===== */
+    /* GRID */
 
     .grid {
       display: grid;
@@ -115,12 +111,14 @@
       gap: 26px;
     }
 
+    /* CARD */
+
     .card {
-      background: white;
+      display: block;
+      background: #ffffff;
       border: 1px solid #ececec;
       border-radius: 16px;
       overflow: hidden;
-
       text-decoration: none;
       color: inherit;
 
@@ -134,31 +132,24 @@
       box-shadow: 0 12px 35px rgba(0,0,0,0.08);
     }
 
-
-    /* 썸네일 */
-
     .thumbnail-wrap {
       width: 100%;
       aspect-ratio: 4 / 3;
       overflow: hidden;
-      background: #eee;
+      background: #eeeeee;
     }
 
     .thumbnail {
       width: 100%;
       height: 100%;
-      object-fit: cover;
       display: block;
-
+      object-fit: cover;
       transition: transform 0.3s ease;
     }
 
     .card:hover .thumbnail {
-      transform: scale(1.025);
+      transform: scale(1.03);
     }
-
-
-    /* 카드 내용 */
 
     .card-content {
       padding: 22px;
@@ -176,58 +167,52 @@
       font-weight: 700;
       line-height: 1.4;
       margin-bottom: 10px;
-      letter-spacing: -0.4px;
     }
 
     .description {
-      font-size: 14px;
-      line-height: 1.65;
       color: #666;
+      font-size: 14px;
+      line-height: 1.7;
     }
 
     .card-bottom {
+      margin-top: 22px;
+      padding-top: 17px;
+      border-top: 1px solid #f0f0f0;
+
       display: flex;
       justify-content: space-between;
       align-items: center;
-
-      margin-top: 22px;
-      padding-top: 17px;
-
-      border-top: 1px solid #f0f0f0;
     }
 
     .date {
-      font-size: 12px;
       color: #999;
+      font-size: 12px;
     }
 
     .view {
       font-size: 13px;
-      font-weight: 600;
+      font-weight: 700;
     }
 
-
-    /* ===== 하단 ===== */
+    /* FOOTER */
 
     footer {
+      background: #ffffff;
       border-top: 1px solid #e7e7e7;
-      background: white;
     }
 
     .footer-inner {
       max-width: 1180px;
-      margin: auto;
+      margin: 0 auto;
       padding: 28px 24px;
-
       color: #999;
       font-size: 12px;
     }
 
-
-    /* ===== 태블릿 ===== */
+    /* TABLET */
 
     @media (max-width: 850px) {
-
       .grid {
         grid-template-columns: repeat(2, 1fr);
       }
@@ -235,11 +220,9 @@
       .hero h1 {
         font-size: 36px;
       }
-
     }
 
-
-    /* ===== 모바일 ===== */
+    /* MOBILE */
 
     @media (max-width: 580px) {
 
@@ -273,22 +256,14 @@
 
       .grid {
         grid-template-columns: 1fr;
-        gap: 20px;
       }
-
     }
-
   </style>
 </head>
 
-
 <body>
 
-
-<!-- 상단 -->
-
 <header>
-
   <div class="header-inner">
 
     <div class="logo">
@@ -300,15 +275,10 @@
     </div>
 
   </div>
-
 </header>
 
 
-
-<!-- 메인 -->
-
 <main>
-
 
   <!-- 소개 -->
 
@@ -323,15 +293,14 @@
     </h1>
 
     <p>
-      임직원을 위한 다양한 교육 콘텐츠를<br>
+      임직원을 위한 교육 콘텐츠를<br>
       쉽고 빠르게 확인해보세요.
     </p>
 
   </section>
 
 
-
-  <!-- 게시판 -->
+  <!-- 교육 콘텐츠 -->
 
   <section>
 
@@ -341,7 +310,7 @@
         교육 콘텐츠
       </h2>
 
-      <div class="content-count">
+      <div class="count">
         1개의 콘텐츠
       </div>
 
@@ -351,17 +320,18 @@
     <div class="grid">
 
 
-      <!-- =========================
-           게시물 1
-           ========================= -->
+      <!-- 게시물 1 -->
 
-      <a href="post1/" class="card">
+      <a
+        class="card"
+        href="https://y-u-b-i-n.github.io/edu/post1/"
+      >
 
         <div class="thumbnail-wrap">
 
           <img
-            src="1.png"
             class="thumbnail"
+            src="https://y-u-b-i-n.github.io/edu/1.png"
             alt="교육 카드뉴스"
           >
 
@@ -405,12 +375,8 @@
 
   </section>
 
-
 </main>
 
-
-
-<!-- 하단 -->
 
 <footer>
 
