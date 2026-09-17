@@ -2,7 +2,6 @@
 <html lang="ko">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,25 +11,14 @@
 
   <title>HDP 아카데미 | Learning Hub</title>
 
-
   <!-- Noto Sans KR -->
-
-  <link
-    rel="preconnect"
-    href="https://fonts.googleapis.com"
-  >
-
-  <link
-    rel="preconnect"
-    href="https://fonts.gstatic.com"
-    crossorigin
-  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
     rel="stylesheet"
   >
-
 
   <style>
 
@@ -38,245 +26,335 @@
       box-sizing: border-box;
     }
 
-
     body {
-
       margin: 0;
-
-      font-family:
-        "Noto Sans KR",
-        sans-serif;
-
+      font-family: "Noto Sans KR", sans-serif;
       background: #f7f8fa;
-
       color: #191919;
-
     }
 
 
-
-    /* =====================
+    /* =========================
        상단
-       ===================== */
+    ========================= */
 
     header {
-
       width: 100%;
+      background: #ffffff;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 22px 20px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+
+    /* =========================
+       메인
+    ========================= */
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 55px 20px 100px;
+    }
+
+
+    /* =========================
+       제목
+    ========================= */
+
+    .hero {
+      text-align: center;
+      margin-bottom: 32px;
+    }
+
+    .hero h1 {
+      margin: 0;
+      font-size: 38px;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+
+    /* =========================
+       검색
+    ========================= */
+
+    .search-area {
+      width: 100%;
+      max-width: 520px;
+      margin: 0 auto 45px;
+    }
+
+    .search-box {
+      position: relative;
+      width: 100%;
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 18px;
+      pointer-events: none;
+    }
+
+    #searchInput {
+      width: 100%;
+      height: 52px;
+
+      padding: 0 20px 0 50px;
+
+      border: 1px solid #dddddd;
+      border-radius: 14px;
 
       background: #ffffff;
 
-      border-bottom:
-        1px solid #e9e9e9;
+      font-family: "Noto Sans KR", sans-serif;
+      font-size: 15px;
 
+      outline: none;
+
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    #searchInput:focus {
+      border-color: #999999;
+      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
+    }
+
+    #searchInput::placeholder {
+      color: #aaaaaa;
     }
 
 
-    .header-inner {
-
-      max-width: 1100px;
-
-      margin: 0 auto;
-
-      padding: 22px 20px;
-
-      text-align: center;
-
-    }
-
-
-    .logo {
-
-      font-size: 22px;
-
-      font-weight: 700;
-
-      letter-spacing: -0.5px;
-
-    }
-
-
-
-    /* =====================
-       메인
-       ===================== */
-
-    main {
-
-      width: 100%;
-
-      max-width: 1100px;
-
-      margin: 0 auto;
-
-      padding:
-        60px 20px
-        100px;
-
-    }
-
-
-
-    /* =====================
-       Learning Hub
-       ===================== */
-
-    .hero {
-
-      text-align: center;
-
-      margin-bottom: 45px;
-
-    }
-
-
-    .hero h1 {
-
-      margin: 0;
-
-      font-size: 38px;
-
-      font-weight: 700;
-
-      letter-spacing: -1px;
-
-    }
-
-
-
-    /* =====================
-       게시물 영역
-       ===================== */
+    /* =========================
+       콘텐츠 목록
+    ========================= */
 
     .posts {
+      display: grid;
 
-      display: flex;
-
-      flex-wrap: wrap;
+      grid-template-columns:
+        repeat(2, 240px);
 
       justify-content: center;
 
-      align-items: flex-start;
-
-      gap: 28px;
-
+      gap: 36px 28px;
     }
 
 
-
-    /* =====================
-       게시물 썸네일
-       ===================== */
+    /* =========================
+       개별 콘텐츠
+    ========================= */
 
     .post {
+      width: 240px;
+    }
 
+    .post-link {
       display: block;
+      color: inherit;
+      text-decoration: none;
+    }
 
+
+    /* 썸네일 */
+
+    .thumbnail-box {
       width: 240px;
 
-      text-decoration: none;
+      background: #ffffff;
 
+      border: 1px solid #e7e7e7;
       border-radius: 14px;
 
       overflow: hidden;
 
-      background: #ffffff;
-
-      border:
-        1px solid #e7e7e7;
-
       transition:
         transform 0.2s ease,
         box-shadow 0.2s ease;
-
     }
 
-
-    .post:hover {
-
-      transform:
-        translateY(-5px);
+    .post-link:hover .thumbnail-box {
+      transform: translateY(-5px);
 
       box-shadow:
         0 12px 30px
         rgba(0,0,0,0.10);
-
     }
-
-
-
-    /* 썸네일 이미지 */
 
     .thumbnail {
-
       display: block;
-
       width: 100%;
-
       height: auto;
-
     }
 
 
+    /* 제목 */
 
-    /* =====================
+    .post-title {
+      margin-top: 12px;
+
+      padding: 0 3px;
+
+      text-align: center;
+
+      font-size: 15px;
+      font-weight: 600;
+
+      line-height: 1.5;
+
+      word-break: keep-all;
+    }
+
+
+    /* =========================
+       더보기
+    ========================= */
+
+    .more-area {
+      text-align: center;
+      margin-top: 48px;
+    }
+
+    #moreButton {
+      min-width: 130px;
+
+      padding: 12px 24px;
+
+      border: 1px solid #dddddd;
+      border-radius: 10px;
+
+      background: #ffffff;
+
+      font-family: "Noto Sans KR", sans-serif;
+
+      font-size: 14px;
+      font-weight: 600;
+
+      color: #333333;
+
+      cursor: pointer;
+
+      transition:
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    #moreButton:hover {
+      background: #f1f1f1;
+      border-color: #cccccc;
+    }
+
+
+    /* 검색 결과 없음 */
+
+    .no-result {
+      display: none;
+
+      text-align: center;
+
+      margin-top: 60px;
+
+      color: #888888;
+
+      font-size: 14px;
+    }
+
+
+    /* =========================
        모바일
-       ===================== */
+    ========================= */
 
-    @media
-    (max-width: 600px) {
-
+    @media (max-width: 600px) {
 
       .header-inner {
-
-        padding:
-          18px 15px;
-
+        padding: 18px 15px;
       }
-
 
       .logo {
-
         font-size: 19px;
-
       }
-
 
       main {
-
-        padding:
-          42px 15px
-          70px;
-
+        padding: 40px 16px 70px;
       }
-
 
       .hero {
-
-        margin-bottom: 30px;
-
+        margin-bottom: 25px;
       }
 
-
       .hero h1 {
-
         font-size: 30px;
+      }
 
+      .search-area {
+        margin-bottom: 35px;
+      }
+
+      #searchInput {
+        height: 50px;
+        font-size: 14px;
       }
 
 
       .posts {
+        grid-template-columns:
+          repeat(2, minmax(0, 1fr));
 
-        gap: 20px;
+        gap: 28px 14px;
 
+        max-width: 430px;
+
+        margin: 0 auto;
       }
 
 
       .post {
+        width: 100%;
+      }
 
-        width: 210px;
+      .thumbnail-box {
+        width: 100%;
+      }
 
-        max-width: 75vw;
+      .post-title {
+        font-size: 14px;
+        margin-top: 9px;
+      }
 
+      .more-area {
+        margin-top: 38px;
+      }
+
+    }
+
+
+    /* 아주 작은 모바일 */
+
+    @media (max-width: 380px) {
+
+      .posts {
+        gap: 24px 10px;
+      }
+
+      .post-title {
+        font-size: 13px;
       }
 
     }
@@ -284,7 +362,6 @@
   </style>
 
 </head>
-
 
 
 <body>
@@ -297,9 +374,7 @@
     <div class="header-inner">
 
       <div class="logo">
-
         HDP 아카데미
-
       </div>
 
     </div>
@@ -308,49 +383,349 @@
 
 
 
-  <!-- 메인 -->
-
   <main>
 
+
+    <!-- 제목 -->
 
     <section class="hero">
 
       <h1>
-
         Learning Hub
-
       </h1>
 
     </section>
 
 
 
-    <!-- 게시물 목록 -->
+    <!-- 검색창 -->
 
-    <section class="posts">
+    <section class="search-area">
 
+      <div class="search-box">
 
-      <!-- 게시물 1 -->
+        <span class="search-icon">
+          🔍
+        </span>
 
-      <a
-        class="post"
-        href="https://y-u-b-i-n.github.io/edu/post1/"
-        aria-label="교육 카드뉴스 보기"
-      >
-
-        <img
-          class="thumbnail"
-          src="https://y-u-b-i-n.github.io/edu/1.png"
-          alt="교육 카드뉴스 썸네일"
+        <input
+          type="search"
+          id="searchInput"
+          placeholder="교육 제목을 검색해보세요"
+          autocomplete="off"
         >
 
-      </a>
+      </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         콘텐츠 목록
+         
+         ★ 새 콘텐츠는
+         여기서 .post 하나를 복사하면 됩니다.
+    ========================== -->
+
+    <section
+      class="posts"
+      id="posts"
+    >
+
+
+      <!-- =====================
+           게시물 1
+      ====================== -->
+
+      <article
+        class="post"
+        data-title="교육 카드뉴스"
+      >
+
+        <a
+          class="post-link"
+          href="post1/"
+        >
+
+          <div class="thumbnail-box">
+
+            <img
+              class="thumbnail"
+              src="1.png"
+              alt="교육 카드뉴스"
+            >
+
+          </div>
+
+          <div class="post-title">
+            교육 카드뉴스
+          </div>
+
+        </a>
+
+      </article>
+
+
+
+      <!--
+      ==========================================
+      게시물 2를 만들 때 아래 부분을 복사하세요.
+
+      <article
+        class="post"
+        data-title="직장 내 괴롭힘 예방교육"
+      >
+
+        <a
+          class="post-link"
+          href="post2/"
+        >
+
+          <div class="thumbnail-box">
+
+            <img
+              class="thumbnail"
+              src="post2/thumbnail.png"
+              alt="직장 내 괴롭힘 예방교육"
+            >
+
+          </div>
+
+          <div class="post-title">
+            직장 내 괴롭힘 예방교육
+          </div>
+
+        </a>
+
+      </article>
+
+      ==========================================
+      -->
 
 
     </section>
 
 
+
+    <!-- 검색 결과 없음 -->
+
+    <div
+      class="no-result"
+      id="noResult"
+    >
+      검색 결과가 없습니다.
+    </div>
+
+
+
+    <!-- 더보기 -->
+
+    <div
+      class="more-area"
+      id="moreArea"
+    >
+
+      <button
+        type="button"
+        id="moreButton"
+      >
+        더보기
+      </button>
+
+    </div>
+
+
   </main>
+
+
+
+  <script>
+
+    const searchInput =
+      document.getElementById("searchInput");
+
+    const posts =
+      Array.from(
+        document.querySelectorAll(".post")
+      );
+
+    const moreButton =
+      document.getElementById("moreButton");
+
+    const moreArea =
+      document.getElementById("moreArea");
+
+    const noResult =
+      document.getElementById("noResult");
+
+
+    /* 처음 보여줄 게시물 수 */
+
+    const initialCount = 4;
+
+
+    /* 더보기 상태 */
+
+    let showAll = false;
+
+
+
+    /* =========================
+       화면 업데이트
+    ========================= */
+
+    function updatePosts() {
+
+      const keyword =
+        searchInput.value
+          .trim()
+          .toLowerCase();
+
+
+      let visibleCount = 0;
+
+
+      posts.forEach(
+        function(post, index) {
+
+          const title =
+            post.dataset.title
+              .toLowerCase();
+
+
+          /* -------------------------
+             검색 중
+          ------------------------- */
+
+          if (keyword !== "") {
+
+            if (title.includes(keyword)) {
+
+              post.style.display = "";
+
+              visibleCount++;
+
+            } else {
+
+              post.style.display = "none";
+
+            }
+
+          }
+
+
+          /* -------------------------
+             일반 화면
+          ------------------------- */
+
+          else {
+
+            if (
+              showAll ||
+              index < initialCount
+            ) {
+
+              post.style.display = "";
+
+              visibleCount++;
+
+            } else {
+
+              post.style.display = "none";
+
+            }
+
+          }
+
+        }
+      );
+
+
+
+      /* 검색 결과 없음 */
+
+      if (
+        keyword !== "" &&
+        visibleCount === 0
+      ) {
+
+        noResult.style.display = "block";
+
+      } else {
+
+        noResult.style.display = "none";
+
+      }
+
+
+
+      /* -------------------------
+         더보기 버튼 표시 여부
+      ------------------------- */
+
+      if (keyword !== "") {
+
+        moreArea.style.display = "none";
+
+      }
+
+      else if (
+        posts.length <= initialCount
+      ) {
+
+        moreArea.style.display = "none";
+
+      }
+
+      else {
+
+        moreArea.style.display = "block";
+
+        moreButton.textContent =
+          showAll
+            ? "접기"
+            : "더보기";
+
+      }
+
+    }
+
+
+
+    /* =========================
+       검색
+    ========================= */
+
+    searchInput.addEventListener(
+      "input",
+      updatePosts
+    );
+
+
+
+    /* =========================
+       더보기
+    ========================= */
+
+    moreButton.addEventListener(
+      "click",
+      function() {
+
+        showAll = !showAll;
+
+        updatePosts();
+
+      }
+    );
+
+
+
+    /* 최초 실행 */
+
+    updatePosts();
+
+  </script>
 
 
 </body>
