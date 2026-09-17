@@ -1,219 +1,616 @@
 <!DOCTYPE html>
 <html lang="ko">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>HDP 아카데미</title>
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>교육 카드뉴스 | HDP 아카데미</title>
+
+
+<!-- Noto Sans KR -->
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link
+href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+rel="stylesheet">
+
 
 <style>
+
 * {
   box-sizing: border-box;
 }
 
 body {
+
   margin: 0;
-  font-family: Arial, "Noto Sans KR", sans-serif;
-  background: #f7f7f8;
+
+  background: #f5f6f8;
+
+  font-family: "Noto Sans KR", sans-serif;
+
   color: #191919;
+
 }
+
 
 /* 상단 */
+
 header {
+
   background: white;
+
   border-bottom: 1px solid #e8e8e8;
+
 }
 
-.header-inner {
-  max-width: 1100px;
+.header {
+
+  max-width: 900px;
+
   margin: auto;
-  padding: 22px 24px;
+
+  padding: 18px 20px;
+
   display: flex;
+
   justify-content: space-between;
+
   align-items: center;
+
 }
 
 .logo {
-  font-size: 22px;
+
   font-weight: 700;
+
+  font-size: 18px;
+
 }
 
-nav {
-  font-size: 15px;
-  font-weight: 600;
-}
+.home {
 
-/* 메인 */
-main {
-  max-width: 1100px;
-  margin: auto;
-  padding: 60px 24px;
-}
-
-.hero {
-  margin-bottom: 45px;
-}
-
-.hero h1 {
-  margin: 0 0 12px;
-  font-size: 38px;
-}
-
-.hero p {
-  margin: 0;
-  color: #666;
-  font-size: 17px;
-}
-
-/* 게시물 영역 */
-.section-title {
-  font-size: 22px;
-  margin-bottom: 20px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
-}
-
-/* 게시물 카드 */
-.card {
-  display: block;
-  background: white;
-  border-radius: 14px;
-  overflow: hidden;
   text-decoration: none;
-  color: inherit;
-  border: 1px solid #ededed;
-  transition: 0.2s;
-}
 
-.card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 10px 30px rgba(0,0,0,.08);
-}
+  color: #555;
 
-.thumbnail {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  object-fit: cover;
-  display: block;
-}
-
-.content {
-  padding: 20px;
-}
-
-.category {
-  font-size: 13px;
-  color: #777;
-  margin-bottom: 9px;
-}
-
-.title {
-  font-size: 19px;
-  font-weight: 700;
-  margin-bottom: 10px;
-}
-
-.description {
-  color: #666;
   font-size: 14px;
-  line-height: 1.6;
+
 }
 
-.date {
-  margin-top: 18px;
-  color: #999;
-  font-size: 12px;
+
+/* 콘텐츠 */
+
+main {
+
+  max-width: 760px;
+
+  margin: 45px auto;
+
+  padding: 0 20px;
+
 }
+
+
+.title-area {
+
+  margin-bottom: 25px;
+
+}
+
+.title-area h1 {
+
+  font-size: 26px;
+
+  margin: 0 0 8px;
+
+}
+
+.title-area p {
+
+  margin: 0;
+
+  color: #777;
+
+  font-size: 14px;
+
+}
+
+
+/* 캐러셀 */
+
+.carousel {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow:
+  0 8px 30px rgba(0,0,0,.08);
+
+}
+
+.slides {
+
+  display: flex;
+
+  transition: transform .35s ease;
+
+  touch-action: pan-y;
+
+}
+
+.slide {
+
+  min-width: 100%;
+
+}
+
+.slide img {
+
+  width: 100%;
+
+  display: block;
+
+}
+
+
+/* 화살표 */
+
+.arrow {
+
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  width: 46px;
+
+  height: 46px;
+
+  border: 0;
+
+  border-radius: 50%;
+
+  background: rgba(0,0,0,.45);
+
+  color: white;
+
+  font-size: 28px;
+
+  cursor: pointer;
+
+}
+
+.prev {
+
+  left: 12px;
+
+}
+
+.next {
+
+  right: 12px;
+
+}
+
+
+/* 페이지 표시 */
+
+.navigation {
+
+  text-align: center;
+
+  padding: 20px;
+
+}
+
+.dots {
+
+  margin-bottom: 8px;
+
+}
+
+.dot {
+
+  display: inline-block;
+
+  width: 9px;
+
+  height: 9px;
+
+  margin: 0 4px;
+
+  border-radius: 50%;
+
+  background: #ccc;
+
+}
+
+.dot.active {
+
+  background: #333;
+
+}
+
+.counter {
+
+  font-size: 13px;
+
+  color: #777;
+
+}
+
+
+/* 목록 돌아가기 */
+
+.back {
+
+  text-align: center;
+
+  margin-top: 25px;
+
+}
+
+.back a {
+
+  text-decoration: none;
+
+  color: #333;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+}
+
 
 /* 모바일 */
-@media(max-width: 800px) {
 
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-}
-
-@media(max-width: 550px) {
-
-  .header-inner {
-    padding: 18px;
-  }
+@media(max-width:600px) {
 
   main {
-    padding: 40px 18px;
+
+    margin: 25px auto;
+
+    padding: 0;
+
   }
 
-  .hero h1 {
-    font-size: 30px;
+  .title-area {
+
+    padding: 0 18px;
+
   }
 
-  .grid {
-    grid-template-columns: 1fr;
+  .carousel {
+
+    border-radius: 0;
+
   }
 
 }
+
 </style>
+
 </head>
+
 
 <body>
 
+
 <header>
-  <div class="header-inner">
-    <div class="logo">HDP 아카데미</div>
-    <nav>Learning Hub</nav>
+
+<div class="header">
+
+  <div class="logo">
+    HDP 아카데미
   </div>
+
+  <a
+  class="home"
+  href="https://y-u-b-i-n.github.io/edu/">
+
+    Learning Hub
+
+  </a>
+
+</div>
+
 </header>
+
+
 
 <main>
 
-  <section class="hero">
-    <h1>Learning Hub</h1>
-    <p>임직원을 위한 교육 콘텐츠를 확인해보세요.</p>
-  </section>
 
-  <h2 class="section-title">교육 콘텐츠</h2>
+<div class="title-area">
 
-  <div class="grid">
+  <h1>
+    교육 카드뉴스
+  </h1>
 
-    <!-- 첫 번째 게시물 -->
-    <a class="card" href="post1/">
+  <p>
+    좌우로 넘기며 교육 내용을 확인해보세요.
+  </p>
 
-      <img
-        class="thumbnail"
-        src="1.png"
-        alt="교육 콘텐츠 썸네일"
-      >
+</div>
 
-      <div class="content">
 
-        <div class="category">
-          Learning Hub
-        </div>
 
-        <div class="title">
-          교육 카드뉴스
-        </div>
+<div class="carousel">
 
-        <div class="description">
-          카드뉴스를 좌우로 넘기며 교육 내용을 확인해보세요.
-        </div>
 
-        <div class="date">
-          2026.09
-        </div>
+<div class="slides" id="slides">
 
-      </div>
 
-    </a>
+<div class="slide">
 
-  </div>
+<img
+src="https://y-u-b-i-n.github.io/edu/1.png"
+alt="교육자료 1">
+
+</div>
+
+
+<div class="slide">
+
+<img
+src="https://y-u-b-i-n.github.io/edu/2.png"
+alt="교육자료 2">
+
+</div>
+
+
+<div class="slide">
+
+<img
+src="https://y-u-b-i-n.github.io/edu/3.png"
+alt="교육자료 3">
+
+</div>
+
+
+<div class="slide">
+
+<img
+src="https://y-u-b-i-n.github.io/edu/4.png"
+alt="교육자료 4">
+
+</div>
+
+
+<div class="slide">
+
+<img
+src="https://y-u-b-i-n.github.io/edu/5.png"
+alt="교육자료 5">
+
+</div>
+
+
+</div>
+
+
+
+<button
+class="arrow prev"
+onclick="prev()">
+
+‹
+
+</button>
+
+
+<button
+class="arrow next"
+onclick="next()">
+
+›
+
+</button>
+
+
+</div>
+
+
+
+<div class="navigation">
+
+<div
+class="dots"
+id="dots">
+</div>
+
+<div
+class="counter"
+id="counter">
+
+1 / 5
+
+</div>
+
+</div>
+
+
+
+<div class="back">
+
+<a
+href="https://y-u-b-i-n.github.io/edu/">
+
+← Learning Hub로 돌아가기
+
+</a>
+
+</div>
+
 
 </main>
 
+
+
+<script>
+
+
+let current = 0;
+
+const total = 5;
+
+const slides =
+document.getElementById("slides");
+
+const dots =
+document.getElementById("dots");
+
+const counter =
+document.getElementById("counter");
+
+
+/* 점 생성 */
+
+for(let i = 0; i < total; i++) {
+
+  const dot =
+  document.createElement("span");
+
+  dot.className = "dot";
+
+  dots.appendChild(dot);
+
+}
+
+
+/* 화면 업데이트 */
+
+function update() {
+
+  slides.style.transform =
+  `translateX(-${current * 100}%)`;
+
+  counter.innerText =
+  `${current + 1} / ${total}`;
+
+  document
+  .querySelectorAll(".dot")
+  .forEach((dot,index) => {
+
+    dot.classList.toggle(
+      "active",
+      index === current
+    );
+
+  });
+
+}
+
+
+/* 다음 */
+
+function next() {
+
+  current =
+  (current + 1) % total;
+
+  update();
+
+}
+
+
+/* 이전 */
+
+function prev() {
+
+  current =
+  (current - 1 + total) % total;
+
+  update();
+
+}
+
+
+/* PC 키보드 */
+
+document.addEventListener(
+"keydown",
+event => {
+
+  if(event.key === "ArrowRight") {
+    next();
+  }
+
+  if(event.key === "ArrowLeft") {
+    prev();
+  }
+
+});
+
+
+/* 모바일 스와이프 */
+
+let startX = 0;
+
+
+slides.addEventListener(
+"touchstart",
+event => {
+
+  startX =
+  event.touches[0].clientX;
+
+},
+{passive:true});
+
+
+slides.addEventListener(
+"touchend",
+event => {
+
+  const endX =
+  event.changedTouches[0].clientX;
+
+  const distance =
+  startX - endX;
+
+
+  if(distance > 50) {
+
+    next();
+
+  }
+
+
+  if(distance < -50) {
+
+    prev();
+
+  }
+
+},
+{passive:true});
+
+
+update();
+
+
+</script>
+
+
 </body>
+
 </html>
