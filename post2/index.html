@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <!-- ★ 여기에서 교육 제목 변경 -->
+  <title>교육 제목 | HDP 아카데미</title>
+
+
+  <!-- Noto Sans KR -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #f7f8fa;
+      color: #191919;
+
+      font-family:
+        "Noto Sans KR",
+        sans-serif;
+    }
+
+
+    /* =====================
+       상단
+    ===================== */
+
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    .header-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 18px 20px;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .hub-link {
+      color: #555555;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .hub-link:hover {
+      color: #000000;
+    }
+
+
+    /* =====================
+       본문
+    ===================== */
+
+    main {
+      max-width: 760px;
+      margin: 40px auto 60px;
+      padding: 0 20px;
+    }
+
+
+    /* =====================
+       제목
+    ===================== */
+
+    .title-area {
+      margin-bottom: 22px;
+      text-align: center;
+    }
+
+    .title-area h1 {
+      margin: 0;
+
+      font-size: 26px;
+      font-weight: 700;
+
+      letter-spacing: -0.5px;
+    }
+
+
+    /* =====================
+       카드뉴스
+    ===================== */
+
+    .carousel {
+      position: relative;
+
+      overflow: hidden;
+
+      background: #ffffff;
+
+      border-radius: 18px;
+
+      box-shadow:
+        0 8px 30px
+        rgba(0,0,0,0.08);
+    }
+
+    .slides {
+      display: flex;
+
+      transition:
+        transform 0.35s ease;
+
+      touch-action: pan-y;
+    }
+
+    .slide {
+      min-width: 100%;
+    }
+
+    .slide img {
+      display: block;
+
+      width: 100%;
+      height: auto;
+    }
+
+
+    /* =====================
+       좌우 버튼
+    ===================== */
+
+    .arrow {
+      position: absolute;
+
+      top: 50%;
+
+      transform:
+        translateY(-50%);
+
+      width: 46px;
+      height: 46px;
+
+      border: 0;
+      border-radius: 50%;
+
+      background:
+        rgba(0,0,0,0.45);
+
+      color: #ffffff;
+
+      font-size: 28px;
+
+      cursor: pointer;
+
+      z-index: 10;
+    }
+
+    .arrow:hover {
+      background:
+        rgba(0,0,0,0.65);
+    }
+
+    .prev {
+      left: 12px;
+    }
+
+    .next {
+      right: 12px;
+    }
+
+
+    /* =====================
+       페이지 표시
+    ===================== */
+
+    .navigation {
+      text-align: center;
+      padding-top: 18px;
+    }
+
+    .dots {
+      display: flex;
+      justify-content: center;
+      gap: 7px;
+    }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+
+      border-radius: 50%;
+
+      background: #cccccc;
+
+      cursor: pointer;
+
+      transition: 0.2s;
+    }
+
+    .dot.active {
+      width: 22px;
+
+      border-radius: 10px;
+
+      background: #222222;
+    }
+
+    .counter {
+      margin-top: 9px;
+
+      color: #888888;
+
+      font-size: 13px;
+    }
+
+
+    /* =====================
+       돌아가기
+    ===================== */
+
+    .back-area {
+      margin-top: 28px;
+
+      text-align: center;
+    }
+
+    .back-button {
+      display: inline-block;
+
+      padding: 11px 18px;
+
+      border:
+        1px solid #dddddd;
+
+      border-radius: 9px;
+
+      background: #ffffff;
+
+      color: #333333;
+
+      text-decoration: none;
+
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .back-button:hover {
+      background: #f1f1f1;
+    }
+
+
+    /* =====================
+       모바일
+    ===================== */
+
+    @media (max-width: 600px) {
+
+      .header-inner {
+        padding: 16px 18px;
+      }
+
+      .logo {
+        font-size: 17px;
+      }
+
+      main {
+        margin: 25px auto 45px;
+
+        padding: 0;
+      }
+
+      .title-area {
+        padding: 0 18px;
+
+        margin-bottom: 18px;
+      }
+
+      .title-area h1 {
+        font-size: 22px;
+      }
+
+      .carousel {
+        border-radius: 0;
+
+        box-shadow: none;
+      }
+
+      .arrow {
+        width: 40px;
+        height: 40px;
+
+        font-size: 24px;
+      }
+
+      .prev {
+        left: 8px;
+      }
+
+      .next {
+        right: 8px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+
+  <!-- 상단 -->
+
+  <header>
+
+    <div class="header-inner">
+
+      <div class="logo">
+        HDP 아카데미
+      </div>
+
+      <a
+        class="hub-link"
+        href="../"
+      >
+        Learning Hub
+      </a>
+
+    </div>
+
+  </header>
+
+
+
+  <main>
+
+
+    <!-- =====================
+         ★ 교육 제목
+         여기만 바꾸면 됩니다.
+    ====================== -->
+
+    <div class="title-area">
+
+      <h1>
+        교육 제목을 입력하세요
+      </h1>
+
+    </div>
+
+
+
+    <!-- =====================
+         카드뉴스 이미지
+    ====================== -->
+
+    <div class="carousel">
+
+      <div
+        class="slides"
+        id="slides"
+      >
+
+
+        <!-- ★ 이미지 1 -->
+
+        <div class="slide">
+
+          <img
+            src="1.png"
+            alt="교육자료 1"
+          >
+
+        </div>
+
+
+
+        <!-- ★ 이미지 2 -->
+
+        <div class="slide">
+
+          <img
+            src="2.png"
+            alt="교육자료 2"
+          >
+
+        </div>
+
+
+
+        <!-- ★ 이미지 3 -->
+
+        <div class="slide">
+
+          <img
+            src="3.png"
+            alt="교육자료 3"
+          >
+
+        </div>
+
+
+
+        <!-- ★ 이미지 4 -->
+
+        <div class="slide">
+
+          <img
+            src="4.png"
+            alt="교육자료 4"
+          >
+
+        </div>
+
+
+
+        <!-- ★ 이미지 5 -->
+
+        <div class="slide">
+
+          <img
+            src="5.png"
+            alt="교육자료 5"
+          >
+
+        </div>
+
+
+      </div>
+
+
+
+      <!-- 이전 -->
+
+      <button
+        class="arrow prev"
+        type="button"
+        aria-label="이전 카드"
+        onclick="previousSlide()"
+      >
+        ‹
+      </button>
+
+
+
+      <!-- 다음 -->
+
+      <button
+        class="arrow next"
+        type="button"
+        aria-label="다음 카드"
+        onclick="nextSlide()"
+      >
+        ›
+      </button>
+
+
+    </div>
+
+
+
+    <!-- 페이지 -->
+
+    <div class="navigation">
+
+      <div
+        class="dots"
+        id="dots"
+      ></div>
+
+      <div
+        class="counter"
+        id="counter"
+      ></div>
+
+    </div>
+
+
+
+    <!-- Learning Hub -->
+
+    <div class="back-area">
+
+      <a
+        class="back-button"
+        href="../"
+      >
+        ← Learning Hub로 돌아가기
+      </a>
+
+    </div>
+
+
+  </main>
+
+
+
+  <script>
+
+    let currentSlide = 0;
+
+
+    /* ==========================
+       ★ 이미지 개수 자동 계산
+       ========================== */
+
+    const slideElements =
+      document.querySelectorAll(".slide");
+
+    const totalSlides =
+      slideElements.length;
+
+
+    const slides =
+      document.getElementById("slides");
+
+    const dotsContainer =
+      document.getElementById("dots");
+
+    const counter =
+      document.getElementById("counter");
+
+
+
+    /* ==========================
+       점 자동 생성
+       ========================== */
+
+    for (
+      let i = 0;
+      i < totalSlides;
+      i++
+    ) {
+
+      const dot =
+        document.createElement("div");
+
+      dot.classList.add("dot");
+
+
+      dot.addEventListener(
+        "click",
+        function() {
+
+          currentSlide = i;
+
+          updateCarousel();
+
+        }
+      );
+
+
+      dotsContainer.appendChild(dot);
+
+    }
+
+
+
+    /* ==========================
+       화면 업데이트
+       ========================== */
+
+    function updateCarousel() {
+
+      slides.style.transform =
+        `translateX(-${currentSlide * 100}%)`;
+
+
+      counter.textContent =
+        `${currentSlide + 1} / ${totalSlides}`;
+
+
+      document
+        .querySelectorAll(".dot")
+        .forEach(
+          function(dot, index) {
+
+            dot.classList.toggle(
+              "active",
+              index === currentSlide
+            );
+
+          }
+        );
+
+    }
+
+
+
+    /* ==========================
+       다음
+       ========================== */
+
+    function nextSlide() {
+
+      currentSlide++;
+
+      if (
+        currentSlide >= totalSlides
+      ) {
+
+        currentSlide = 0;
+
+      }
+
+      updateCarousel();
+
+    }
+
+
+
+    /* ==========================
+       이전
+       ========================== */
+
+    function previousSlide() {
+
+      currentSlide--;
+
+      if (
+        currentSlide < 0
+      ) {
+
+        currentSlide =
+          totalSlides - 1;
+
+      }
+
+      updateCarousel();
+
+    }
+
+
+
+    /* ==========================
+       PC 키보드
+       ========================== */
+
+    document.addEventListener(
+      "keydown",
+      function(event) {
+
+        if (
+          event.key === "ArrowRight"
+        ) {
+
+          nextSlide();
+
+        }
+
+
+        if (
+          event.key === "ArrowLeft"
+        ) {
+
+          previousSlide();
+
+        }
+
+      }
+    );
+
+
+
+    /* ==========================
+       모바일 스와이프
+       ========================== */
+
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+
+    slides.addEventListener(
+      "touchstart",
+      function(event) {
+
+        touchStartX =
+          event.changedTouches[0].screenX;
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    slides.addEventListener(
+      "touchend",
+      function(event) {
+
+        touchEndX =
+          event.changedTouches[0].screenX;
+
+        handleSwipe();
+
+      },
+      {
+        passive: true
+      }
+    );
+
+
+    function handleSwipe() {
+
+      const distance =
+        touchStartX - touchEndX;
+
+
+      if (
+        Math.abs(distance) < 50
+      ) {
+
+        return;
+
+      }
+
+
+      if (
+        distance > 0
+      ) {
+
+        nextSlide();
+
+      }
+
+      else {
+
+        previousSlide();
+
+      }
+
+    }
+
+
+
+    /* 시작 */
+
+    updateCarousel();
+
+  </script>
+
+
+</body>
+
+</html>
