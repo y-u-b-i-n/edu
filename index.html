@@ -1,181 +1,425 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>교육 카드뉴스</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* { box-sizing: border-box; }
+  <title>HDP 아카데미</title>
 
-body {
-  margin: 0;
-  background: #f4f4f4;
-  font-family: Arial, sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 100vh;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-.wrap {
-  width: 100%;
-  max-width: 700px;
-  padding: 15px;
-  text-align: center;
-}
+    body {
+      margin: 0;
+      font-family: Arial, "Noto Sans KR", sans-serif;
+      background: #f7f8fa;
+      color: #181818;
+    }
 
-.carousel {
-  position: relative;
-  overflow: hidden;
-  background: white;
-  border-radius: 15px;
-  box-shadow: 0 4px 20px rgba(0,0,0,.12);
-}
+    /* ===== 상단 메뉴 ===== */
 
-.slides {
-  display: flex;
-  transition: transform .3s ease;
-  touch-action: pan-y;
-}
+    header {
+      background: #ffffff;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
 
-.slide {
-  min-width: 100%;
-}
+    .header-inner {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 20px 24px;
 
-.slide img {
-  width: 100%;
-  display: block;
-}
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
 
-button {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 45px;
-  height: 45px;
-  border: 0;
-  border-radius: 50%;
-  background: rgba(0,0,0,.45);
-  color: white;
-  font-size: 28px;
-  cursor: pointer;
-}
+    .logo {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
 
-.prev { left: 10px; }
-.next { right: 10px; }
+    .nav {
+      font-size: 15px;
+      font-weight: 600;
+    }
 
-.dots {
-  margin-top: 15px;
-}
 
-.dot {
-  display: inline-block;
-  width: 9px;
-  height: 9px;
-  margin: 4px;
-  border-radius: 50%;
-  background: #bbb;
-}
+    /* ===== 메인 ===== */
 
-.dot.active {
-  background: #333;
-}
+    main {
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 70px 24px 100px;
+    }
 
-.counter {
-  margin-top: 8px;
-  color: #555;
-  font-size: 14px;
-}
 
-@media(max-width:600px) {
-  .wrap { padding:0; }
-  .carousel { border-radius:0; }
-}
-</style>
+    /* ===== 타이틀 영역 ===== */
+
+    .hero {
+      margin-bottom: 55px;
+    }
+
+    .hero-label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 14px;
+      color: #777;
+    }
+
+    .hero h1 {
+      margin: 0 0 15px;
+      font-size: 42px;
+      letter-spacing: -1.5px;
+    }
+
+    .hero p {
+      margin: 0;
+      font-size: 17px;
+      line-height: 1.7;
+      color: #666;
+    }
+
+
+    /* ===== Learning Hub ===== */
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 22px;
+    }
+
+    .section-title {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: -0.5px;
+    }
+
+    .content-count {
+      color: #999;
+      font-size: 14px;
+    }
+
+
+    /* ===== 게시물 ===== */
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ececec;
+      border-radius: 16px;
+      overflow: hidden;
+
+      text-decoration: none;
+      color: inherit;
+
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 35px rgba(0,0,0,0.08);
+    }
+
+
+    /* 썸네일 */
+
+    .thumbnail-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      background: #eee;
+    }
+
+    .thumbnail {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .thumbnail {
+      transform: scale(1.025);
+    }
+
+
+    /* 카드 내용 */
+
+    .card-content {
+      padding: 22px;
+    }
+
+    .category {
+      font-size: 13px;
+      font-weight: 600;
+      color: #777;
+      margin-bottom: 10px;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 700;
+      line-height: 1.4;
+      margin-bottom: 10px;
+      letter-spacing: -0.4px;
+    }
+
+    .description {
+      font-size: 14px;
+      line-height: 1.65;
+      color: #666;
+    }
+
+    .card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      margin-top: 22px;
+      padding-top: 17px;
+
+      border-top: 1px solid #f0f0f0;
+    }
+
+    .date {
+      font-size: 12px;
+      color: #999;
+    }
+
+    .view {
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+
+    /* ===== 하단 ===== */
+
+    footer {
+      border-top: 1px solid #e7e7e7;
+      background: white;
+    }
+
+    .footer-inner {
+      max-width: 1180px;
+      margin: auto;
+      padding: 28px 24px;
+
+      color: #999;
+      font-size: 12px;
+    }
+
+
+    /* ===== 태블릿 ===== */
+
+    @media (max-width: 850px) {
+
+      .grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .hero h1 {
+        font-size: 36px;
+      }
+
+    }
+
+
+    /* ===== 모바일 ===== */
+
+    @media (max-width: 580px) {
+
+      .header-inner {
+        padding: 17px 18px;
+      }
+
+      .logo {
+        font-size: 18px;
+      }
+
+      .nav {
+        font-size: 13px;
+      }
+
+      main {
+        padding: 45px 18px 70px;
+      }
+
+      .hero {
+        margin-bottom: 42px;
+      }
+
+      .hero h1 {
+        font-size: 31px;
+      }
+
+      .hero p {
+        font-size: 15px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+    }
+
+  </style>
 </head>
+
 
 <body>
 
-<div class="wrap">
 
-  <div class="carousel">
+<!-- 상단 -->
 
-    <div class="slides" id="slides">
+<header>
 
-      <div class="slide"><img src="1.png"></div>
-      <div class="slide"><img src="2.png"></div>
-      <div class="slide"><img src="3.png"></div>
-      <div class="slide"><img src="4.png"></div>
-      <div class="slide"><img src="5.png"></div>
+  <div class="header-inner">
 
+    <div class="logo">
+      HDP 아카데미
     </div>
 
-    <button class="prev" onclick="prev()">‹</button>
-    <button class="next" onclick="next()">›</button>
+    <div class="nav">
+      Learning Hub
+    </div>
 
   </div>
 
-  <div class="dots" id="dots"></div>
-  <div class="counter" id="counter">1 / 5</div>
+</header>
 
-</div>
 
-<script>
-let current = 0;
-const total = 5;
 
-const slides = document.getElementById("slides");
-const dots = document.getElementById("dots");
-const counter = document.getElementById("counter");
+<!-- 메인 -->
 
-for(let i=0;i<total;i++){
-  const dot=document.createElement("span");
-  dot.className="dot";
-  dots.appendChild(dot);
-}
+<main>
 
-function update(){
-  slides.style.transform=`translateX(-${current*100}%)`;
-  counter.innerText=`${current+1} / ${total}`;
 
-  document.querySelectorAll(".dot").forEach((d,i)=>{
-    d.classList.toggle("active",i===current);
-  });
-}
+  <!-- 소개 -->
 
-function next(){
-  current=(current+1)%total;
-  update();
-}
+  <section class="hero">
 
-function prev(){
-  current=(current-1+total)%total;
-  update();
-}
+    <div class="hero-label">
+      HDP ACADEMY
+    </div>
 
-/* PC 키보드 */
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowRight") next();
-  if(e.key==="ArrowLeft") prev();
-});
+    <h1>
+      Learning Hub
+    </h1>
 
-/* 모바일 스와이프 */
-let startX=0;
+    <p>
+      임직원을 위한 다양한 교육 콘텐츠를<br>
+      쉽고 빠르게 확인해보세요.
+    </p>
 
-slides.addEventListener("touchstart",e=>{
-  startX=e.touches[0].clientX;
-},{passive:true});
+  </section>
 
-slides.addEventListener("touchend",e=>{
-  const endX=e.changedTouches[0].clientX;
 
-  if(startX-endX>50) next();
-  if(endX-startX>50) prev();
-},{passive:true});
 
-update();
-</script>
+  <!-- 게시판 -->
+
+  <section>
+
+    <div class="section-header">
+
+      <h2 class="section-title">
+        교육 콘텐츠
+      </h2>
+
+      <div class="content-count">
+        1개의 콘텐츠
+      </div>
+
+    </div>
+
+
+    <div class="grid">
+
+
+      <!-- =========================
+           게시물 1
+           ========================= -->
+
+      <a href="post1/" class="card">
+
+        <div class="thumbnail-wrap">
+
+          <img
+            src="1.png"
+            class="thumbnail"
+            alt="교육 카드뉴스"
+          >
+
+        </div>
+
+
+        <div class="card-content">
+
+          <div class="category">
+            Learning Hub
+          </div>
+
+          <div class="card-title">
+            교육 카드뉴스
+          </div>
+
+          <div class="description">
+            카드뉴스를 좌우로 넘기며
+            교육 내용을 확인해보세요.
+          </div>
+
+
+          <div class="card-bottom">
+
+            <span class="date">
+              2026.09
+            </span>
+
+            <span class="view">
+              자세히 보기 →
+            </span>
+
+          </div>
+
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+
+<!-- 하단 -->
+
+<footer>
+
+  <div class="footer-inner">
+    HDP 아카데미 · Learning Hub
+  </div>
+
+</footer>
+
 
 </body>
 </html>
