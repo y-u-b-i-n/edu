@@ -10,13 +10,21 @@
     content="width=device-width, initial-scale=1.0"
   >
 
-  <!-- ★ SAP에서 뭐 어쩌고 하는법 -->
-  <title>교육 제목 | HDP 아카데미</title>
+  <title>테스트중입니다 | HDP 아카데미</title>
 
 
   <!-- Noto Sans KR -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
 
   <link
     href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;600;700;800&display=swap"
@@ -30,22 +38,25 @@
       box-sizing: border-box;
     }
 
+    html,
     body {
       margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Noto Sans KR", sans-serif;
       background: #f7f8fa;
       color: #191919;
-
-      font-family:
-        "Noto Sans KR",
-        sans-serif;
     }
 
 
-    /* =====================
+    /* =========================
        상단
-    ===================== */
+    ========================= */
 
     header {
+      width: 100%;
       background: #ffffff;
       border-bottom: 1px solid #e8e8e8;
     }
@@ -63,6 +74,7 @@
     .logo {
       font-size: 18px;
       font-weight: 700;
+      letter-spacing: -0.4px;
     }
 
     .hub-link {
@@ -77,56 +89,63 @@
     }
 
 
-    /* =====================
+    /* =========================
        본문
-    ===================== */
+    ========================= */
 
     main {
+      width: 100%;
       max-width: 760px;
       margin: 40px auto 60px;
       padding: 0 20px;
     }
 
 
-    /* =====================
+    /* =========================
        제목
-    ===================== */
+    ========================= */
 
     .title-area {
-      margin-bottom: 22px;
       text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .category {
+      margin-bottom: 7px;
+      color: #888888;
+      font-size: 13px;
+      font-weight: 500;
     }
 
     .title-area h1 {
       margin: 0;
-
       font-size: 26px;
       font-weight: 700;
-
-      letter-spacing: -0.5px;
+      letter-spacing: -0.6px;
     }
 
 
-    /* =====================
-       카드뉴스
-    ===================== */
+    /* =========================
+       캐러셀
+    ========================= */
 
     .carousel {
       position: relative;
+      width: 100%;
 
       overflow: hidden;
 
       background: #ffffff;
-
       border-radius: 18px;
 
       box-shadow:
         0 8px 30px
-        rgba(0,0,0,0.08);
+        rgba(0, 0, 0, 0.08);
     }
 
     .slides {
       display: flex;
+      width: 100%;
 
       transition:
         transform 0.35s ease;
@@ -136,23 +155,22 @@
 
     .slide {
       min-width: 100%;
+      width: 100%;
     }
 
     .slide img {
       display: block;
-
       width: 100%;
       height: auto;
     }
 
 
-    /* =====================
+    /* =========================
        좌우 버튼
-    ===================== */
+    ========================= */
 
     .arrow {
       position: absolute;
-
       top: 50%;
 
       transform:
@@ -165,20 +183,27 @@
       border-radius: 50%;
 
       background:
-        rgba(0,0,0,0.45);
+        rgba(0, 0, 0, 0.45);
 
       color: #ffffff;
+
+      font-family:
+        "Noto Sans KR",
+        sans-serif;
 
       font-size: 28px;
 
       cursor: pointer;
 
       z-index: 10;
+
+      transition:
+        background 0.2s ease;
     }
 
     .arrow:hover {
       background:
-        rgba(0,0,0,0.65);
+        rgba(0, 0, 0, 0.65);
     }
 
     .prev {
@@ -190,9 +215,9 @@
     }
 
 
-    /* =====================
+    /* =========================
        페이지 표시
-    ===================== */
+    ========================= */
 
     .navigation {
       text-align: center;
@@ -202,6 +227,7 @@
     .dots {
       display: flex;
       justify-content: center;
+      align-items: center;
       gap: 7px;
     }
 
@@ -215,7 +241,8 @@
 
       cursor: pointer;
 
-      transition: 0.2s;
+      transition:
+        all 0.2s ease;
     }
 
     .dot.active {
@@ -235,13 +262,12 @@
     }
 
 
-    /* =====================
+    /* =========================
        돌아가기
-    ===================== */
+    ========================= */
 
     .back-area {
       margin-top: 28px;
-
       text-align: center;
     }
 
@@ -263,6 +289,9 @@
 
       font-size: 14px;
       font-weight: 600;
+
+      transition:
+        background 0.2s ease;
     }
 
     .back-button:hover {
@@ -270,9 +299,9 @@
     }
 
 
-    /* =====================
+    /* =========================
        모바일
-    ===================== */
+    ========================= */
 
     @media (max-width: 600px) {
 
@@ -285,14 +314,12 @@
       }
 
       main {
-        margin: 25px auto 45px;
-
+        margin: 26px auto 45px;
         padding: 0;
       }
 
       .title-area {
         padding: 0 18px;
-
         margin-bottom: 18px;
       }
 
@@ -302,14 +329,12 @@
 
       .carousel {
         border-radius: 0;
-
         box-shadow: none;
       }
 
       .arrow {
         width: 40px;
         height: 40px;
-
         font-size: 24px;
       }
 
@@ -319,6 +344,10 @@
 
       .next {
         right: 8px;
+      }
+
+      .back-area {
+        padding: 0 18px;
       }
 
     }
@@ -357,25 +386,26 @@
   <main>
 
 
-    <!-- =====================
-         ★ SAP에서 뭐 어쩌고 하는법
-    ====================== -->
+    <!-- 교육 제목 -->
 
     <div class="title-area">
 
+      <div class="category">
+        Learning Hub
+      </div>
+
       <h1>
-        교육 제목을 입력하세요
+        테스트중입니다
       </h1>
 
     </div>
 
 
 
-    <!-- =====================
-         카드뉴스 이미지
-    ====================== -->
+    <!-- 카드뉴스 -->
 
     <div class="carousel">
+
 
       <div
         class="slides"
@@ -383,65 +413,61 @@
       >
 
 
-        <!-- ★ 이미지 1 -->
+        <!-- 1페이지 -->
 
         <div class="slide">
 
           <img
             src="1.png"
-            alt="교육자료 1"
+            alt="테스트중입니다 1페이지"
           >
 
         </div>
 
 
-
-        <!-- ★ 이미지 2 -->
+        <!-- 2페이지 -->
 
         <div class="slide">
 
           <img
             src="2.png"
-            alt="교육자료 2"
+            alt="테스트중입니다 2페이지"
           >
 
         </div>
 
 
-
-        <!-- ★ 이미지 3 -->
+        <!-- 3페이지 -->
 
         <div class="slide">
 
           <img
             src="3.png"
-            alt="교육자료 3"
+            alt="테스트중입니다 3페이지"
           >
 
         </div>
 
 
-
-        <!-- ★ 이미지 4 -->
+        <!-- 4페이지 -->
 
         <div class="slide">
 
           <img
             src="4.png"
-            alt="교육자료 4"
+            alt="테스트중입니다 4페이지"
           >
 
         </div>
 
 
-
-        <!-- ★ 이미지 5 -->
+        <!-- 5페이지 -->
 
         <div class="slide">
 
           <img
             src="5.png"
-            alt="교육자료 5"
+            alt="테스트중입니다 5페이지"
           >
 
         </div>
@@ -451,12 +477,12 @@
 
 
 
-      <!-- 이전 -->
+      <!-- 이전 버튼 -->
 
       <button
         class="arrow prev"
         type="button"
-        aria-label="이전 카드"
+        aria-label="이전 페이지"
         onclick="previousSlide()"
       >
         ‹
@@ -464,12 +490,12 @@
 
 
 
-      <!-- 다음 -->
+      <!-- 다음 버튼 -->
 
       <button
         class="arrow next"
         type="button"
-        aria-label="다음 카드"
+        aria-label="다음 페이지"
         onclick="nextSlide()"
       >
         ›
@@ -480,7 +506,7 @@
 
 
 
-    <!-- 페이지 -->
+    <!-- 페이지 표시 -->
 
     <div class="navigation">
 
@@ -498,7 +524,7 @@
 
 
 
-    <!-- Learning Hub -->
+    <!-- 메인으로 돌아가기 -->
 
     <div class="back-area">
 
@@ -521,9 +547,7 @@
     let currentSlide = 0;
 
 
-    /* ==========================
-       ★ 이미지 개수 자동 계산
-       ========================== */
+    /* 이미지 개수를 자동으로 계산 */
 
     const slideElements =
       document.querySelectorAll(".slide");
@@ -543,9 +567,7 @@
 
 
 
-    /* ==========================
-       점 자동 생성
-       ========================== */
+    /* 페이지 점 자동 생성 */
 
     for (
       let i = 0;
@@ -577,9 +599,7 @@
 
 
 
-    /* ==========================
-       화면 업데이트
-       ========================== */
+    /* 화면 업데이트 */
 
     function updateCarousel() {
 
@@ -608,9 +628,7 @@
 
 
 
-    /* ==========================
-       다음
-       ========================== */
+    /* 다음 페이지 */
 
     function nextSlide() {
 
@@ -630,9 +648,7 @@
 
 
 
-    /* ==========================
-       이전
-       ========================== */
+    /* 이전 페이지 */
 
     function previousSlide() {
 
@@ -653,9 +669,7 @@
 
 
 
-    /* ==========================
-       PC 키보드
-       ========================== */
+    /* PC 키보드 방향키 */
 
     document.addEventListener(
       "keydown",
@@ -683,9 +697,7 @@
 
 
 
-    /* ==========================
-       모바일 스와이프
-       ========================== */
+    /* 모바일 스와이프 */
 
     let touchStartX = 0;
     let touchEndX = 0;
@@ -754,7 +766,7 @@
 
 
 
-    /* 시작 */
+    /* 최초 실행 */
 
     updateCarousel();
 
